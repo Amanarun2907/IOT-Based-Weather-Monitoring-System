@@ -1,0 +1,107 @@
+// IoT Weather Monitoring - Time Series Analysis Methodology
+digraph {
+	rankdir=TB size="12,16"
+	node [fontname=Arial fontsize=11 shape=box style="filled,rounded"]
+	edge [fontname=Arial fontsize=10]
+	A [label="START
+IoT Weather Monitoring System" fillcolor="#90EE90" fontsize=12 style="filled,rounded,bold"]
+	B [label="Data Collection
+• DHT Sensor (Temp, Humidity)
+• BMP Sensor (Pressure)
+• ESP32 Microcontroller
+• 300 readings (9 AM - 2 PM)" fillcolor="#87CEEB"]
+	C [label="Load Data
+• Read Excel file
+• 300 entries
+• 6 columns" fillcolor="#87CEEB"]
+	D [label="Statistical Description
+• Descriptive statistics
+• Missing value check
+• Correlation analysis" fillcolor="#FFA07A"]
+	E [label="Data Preprocessing
+• Create DateTime index
+• Sort by time
+• Extract parameters" fillcolor="#FFD700"]
+	F [label="Exploratory Data Analysis
+• Time series plots
+• Correlation heatmap
+• ACF/PACF plots" fillcolor="#FFA07A"]
+	G [label="Stationarity Testing
+• Augmented Dickey-Fuller Test
+• Check p-value < 0.05
+• Determine differencing" fillcolor="#FFA07A"]
+	H [label="Train-Test Split
+• Training: 80% (240 samples)
+• Testing: 20% (60 samples)" fillcolor="#FFD700"]
+	I1 [label="Temperature Forecasting
+• ARIMA (2,1,2)
+• SARIMA (1,1,1)(1,1,1,12)
+• GARCH (1,1)" fillcolor="#DDA0DD"]
+	I2 [label="Humidity Forecasting
+• ARIMA (2,1,2)
+• SARIMA (1,1,1)(1,1,1,12)
+• GARCH (1,1)" fillcolor="#DDA0DD"]
+	I3 [label="Pressure Forecasting
+• ARIMA (2,1,2)
+• SARIMA (1,1,1)(1,1,1,12)
+• GARCH (1,1)" fillcolor="#DDA0DD"]
+	I4 [label="Dew Point Forecasting
+• ARIMA (2,1,2)
+• SARIMA (1,1,1)(1,1,1,12)
+• GARCH (1,1)" fillcolor="#DDA0DD"]
+	J [label="Model Evaluation
+• RMSE (Root Mean Square Error)
+• MAE (Mean Absolute Error)
+• MAPE (Mean Absolute % Error)
+• R² Score" fillcolor="#F08080"]
+	K [label="Model Comparison
+• Compare performance metrics
+• Select best model
+• Generate comparison charts" fillcolor="#F08080"]
+	L [label="Future Forecasting
+• Predict 2:15 PM - 6:15 PM
+• 240 minutes (4 hours)
+• All 4 parameters" fillcolor="#98FB98"]
+	M [label="Results Visualization
+• Model comparison plots
+• Future forecast graphs
+• Performance bar charts
+• Save all figures" fillcolor="#98FB98"]
+	N [label="Report Generation
+• Performance metrics table
+• Forecast data Excel
+• Methodology flowchart
+• All visualizations" fillcolor="#FFB6C1"]
+	O [label="END
+Complete Analysis Report" fillcolor="#FFB6C1" fontsize=12 style="filled,rounded,bold"]
+	A -> B [label=Collect]
+	B -> C [label=Store]
+	C -> D [label=Analyze]
+	D -> E [label=Process]
+	E -> F [label=Visualize]
+	F -> G [label=Test]
+	G -> H [label=Split]
+	H -> I1 [label=Train]
+	H -> I2 [label=Train]
+	H -> I3 [label=Train]
+	H -> I4 [label=Train]
+	I1 -> J [label=Evaluate]
+	I2 -> J [label=Evaluate]
+	I3 -> J [label=Evaluate]
+	I4 -> J [label=Evaluate]
+	J -> K [label=Compare]
+	K -> L [label=Forecast]
+	L -> M [label=Visualize]
+	M -> N [label=Document]
+	N -> O [label=Complete]
+	node [shape=plaintext style=""]
+	subgraph cluster_legend {
+		fontsize=12 label=Legend style=dashed
+		L1 [label="Data Collection & Loading" fillcolor="#87CEEB" shape=box style="filled,rounded"]
+		L2 [label=Preprocessing fillcolor="#FFD700" shape=box style="filled,rounded"]
+		L3 [label="Analysis & Testing" fillcolor="#FFA07A" shape=box style="filled,rounded"]
+		L4 [label="Model Training" fillcolor="#DDA0DD" shape=box style="filled,rounded"]
+		L5 [label=Evaluation fillcolor="#F08080" shape=box style="filled,rounded"]
+		L6 [label="Forecasting & Results" fillcolor="#98FB98" shape=box style="filled,rounded"]
+	}
+}
